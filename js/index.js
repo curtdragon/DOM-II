@@ -11,23 +11,37 @@ magicbus.addEventListener("mouseover", event => {
 }, {once:true}
 );
 
+
+
+
 //keydown
-document.addEventListener("keydown",event => {
+document.addEventListener("keydown",() => {
     alert("You are supposed to be reading not typing!!!!");
     },
     {once:true}
 );
 
 //wheel
+let wheelitem = document.getElementById("funbustext");
+wheelitem.addEventListener("wheel" , () => {
+    wheelitem.style.fontSize = "3.6rem";
+});
 
 //drag/drop
+let dragitem = document.querySelector(".rounded");
+let adventure = document.querySelector("#adventure");
+dragitem.addEventListener("drag", event => {
+    //Prevent Default
+    event.preventDefault()
+    adventure.style.color = "blue";
+});
 
 //load
-// let dest_img = document.querySelector("#destination_img");
-
-// dest_img.addEventListener('load', () => {
-//     alert("Loaded");
-// });
+window.addEventListener("load", () => {
+    alert("Document Loaded");
+},
+    { once: true }
+);
 
 //focus
 let focush2 = document.getElementById("destinationh2");
@@ -37,8 +51,18 @@ focush2.addEventListener("focus", event => {
 });
 
 //resize
+window.addEventListener("resize", () => {
+    alert("You are resizing");
+},
+    { once: true }
+);
 
 //scroll
+document.addEventListener("scroll", () => {
+    alert("You are scrolling");
+},
+   { once: true }
+);
 
 //select
 let textselect = document.getElementById("textselection");
@@ -48,13 +72,19 @@ textselect.addEventListener("select", event => {
 
 //dblclick
 let doubleclick = document.getElementById("btn1");
-doubleclick.addEventListener('dblclick', event => {
-    alert("Double Click");
+doubleclick.addEventListener('dblclick', () => {
+    alert("Button Double Click");
+    event.stopImmediatePropagation();
 });
 
-//nested
 
-//prevent refresh
+let propdoubleclick = document.querySelector(".destination");
+propdoubleclick.addEventListener('dblclick', () => {
+    alert("Destination Double Click");
+});
+
+//Doubleclick stop propagation
+
 
 //Strech task: GASP
 
